@@ -16,13 +16,18 @@
 </head>
 <body>
 <h2>${department.name}</h2>
-<br>
+
 <c:if test="${empty employs}">
     <div class="alert alert-warning">
     <strong>${department.name}</strong> have n't employs.
         </div>
 </c:if>
-<br>
+<c:if test="${not empty message}">
+    <div class="alert alert-success">
+        ${message}
+    </div>
+</c:if>
+
 <table class="table table-striped">
     <tbody>
     <c:forEach items="${employs}" var="employ">

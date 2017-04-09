@@ -27,10 +27,9 @@ public class CreateEmploy extends HttpServlet{
         try {
             req.setCharacterEncoding("utf8");
             String idDepartment = req.getPathInfo().substring(1);
-            System.out.println(idDepartment);
             ArrayList freeEmploys = new EmployQuery().getEmploysInDepartment(0);
             req.setAttribute("freeEmploys", freeEmploys);
-            req.getRequestDispatcher("/create-employ.jsp?idDepartment=" + idDepartment).forward(req, resp);//todo without param!!
+            req.getRequestDispatcher("/create-employ.jsp?idDepartment=" + idDepartment).forward(req, resp);
         } catch (Exception e) {
             e.printStackTrace();
             resp.sendRedirect("/");

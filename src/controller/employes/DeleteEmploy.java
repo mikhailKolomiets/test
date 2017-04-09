@@ -33,9 +33,11 @@ public class DeleteEmploy extends HttpServlet {
                 employ.setIdDepartment(0);
                 employ.correctDate();
                 query.updateEmploy(employ);
+                req.setAttribute("message", "Employ " + employ.getName() + " is free now");
             }
             if (action == 2) {
                 query.deleteEmployById(employId);
+                req.setAttribute("message", "Employ " + employ.getName() + " success deleted");
             }
 
             Department department = new DepartmentQuery().findDepartmentById(departmentId);
