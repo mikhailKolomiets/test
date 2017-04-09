@@ -32,7 +32,7 @@
       <td>${department.name}</td>
       <td>
       <button formaction="/edit-department/${department.id}">Edit name</button>
-      <button formaction="/department/${department.id}/>">View</button>
+      <button formaction="/department/${department.id}">View</button>
       <button formaction="/delete-department/${department.id}">Delete</button>
       </td>
   </form>
