@@ -58,7 +58,7 @@ public class EditEmploy extends HttpServlet {
 
                 employ = new EmployQuery().updateEmploy(employ);
 
-                resp.sendRedirect("/department/" + employ.getIdDepartment());
+                resp.sendRedirect("/department/" + employ.getIdDepartment() + "?idEmploy=" + employ.getId());
             } else {
                 InputData inputData = new InputData();
 

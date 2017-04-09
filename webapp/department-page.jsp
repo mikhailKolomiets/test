@@ -32,7 +32,7 @@
                 <td class="col-md-6">
                     <button formaction="/edit-employ/${employ.id}">Edit</button>
                     <button name="idEmploy" value="${employ.id}"
-                            formaction="/department/<c:out value="${department.id}"/>">View
+                            formaction="/department/${department.id}">View
                     </button>
                     <button formaction="/delete-employ/${employ.id}" name="action" value="1">Delete from department
                     </button>
