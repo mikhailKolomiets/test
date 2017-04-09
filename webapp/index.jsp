@@ -41,7 +41,7 @@
     </tbody>
 </table>
 <form>
-    <button class="btn-success" formaction="create-department.jsp">Create department</button>
+    <button class="btn-success" formaction="/create-department.jsp">Create department</button>
 </form>
 </body>
 </html>

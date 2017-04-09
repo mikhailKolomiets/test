@@ -1,5 +1,6 @@
 package controller.departments;
 
+import beans.Department;
 import db.mysql.DepartmentQuery;
 import validation.DepartmentCreateValidation;
 
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by mihail on 02.04.17.
@@ -25,7 +27,10 @@ public class CreateDepartment extends HttpServlet {
             String validationMassage = DepartmentCreateValidation.check(name);
             if(validationMassage == null) {
                 new DepartmentQuery().addNewDepartment(name);
-                resp.sendRedirect("/");
+                ArrayList<Department> departments = new DepartmentQuery().getAllDepartments();
+                req.setAttribute("departments", departments);
+                req.setAttribute("message", "Department " + name + " success create");
+                req.getRequestDispatcher("/index.jsp").forward(req, resp);
             }
             else {
                 req.setAttribute("dangerMessage", validationMassage);
