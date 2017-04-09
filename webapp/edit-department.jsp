@@ -10,8 +10,17 @@
 <html>
 <head>
     <title>Edit department</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<h2>Select new name to ${department.name}</h2>
+<c:if test="${not empty message}">
+<div class="alert alert-danger">
+  ${message}
+</div>
+</c:if>
 <c:out value="${message}"/>
 <form action="edit-department/<c:out value="${department.id}"/>" method="post">
   <input type="text" value="<c:out value="${department.name}"/>" name="name">
