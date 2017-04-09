@@ -10,20 +10,31 @@
 <html>
 <head>
     <title>Main page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-Departments:
+<h2>Departments:</h2>
 <br>
+<table class="table table-striped">
+    <tbody>
 <c:forEach items="${departments}" var="department">
+<tr>
   <form>
-      <c:out value = "${department.name}"/>
-      <button formaction="/edit-department/<c:out value="${department.id}"/>">Edit name</button>
-      <button formaction="/department/<c:out value="${department.id}"/>">View</button>
+      <td>${department.name}</td>
+      <td>
+      <button formaction="/edit-department/${department.id}">Edit name</button>
+      <button formaction="/department/${department.id}/>">View</button>
       <button formaction="/delete-department/${department.id}">Delete</button>
+      </td>
   </form>
+    </tr>
 </c:forEach>
+    </tbody>
+</table>
 <form>
-    <button formaction="create-department.jsp">Create department</button>
+    <button class="btn-success" formaction="create-department.jsp">Create department</button>
 </form>
 </body>
 </html>
